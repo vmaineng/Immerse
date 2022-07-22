@@ -5,22 +5,21 @@ def index
 end
 
 def create
-    # experience = Experience.find_by(id: params[:id])
-    rating = Rating.create!(rating_params)
+    #experience = Experience.find_by(id: params[:id])
+    rating = Rating.create!( rating_params)
     render json: rating, status: :created
 end
 
 def update
     rating = Rating.find_by(id: params[:id])
-    rating.update(rating_params)
-    render json: rating, status: :updated
+    rating.update!(rating_params)
+    render json: rating
 end
 
 def destroy
     find_rating.destroy
     head :no_content
 end
-
 
 
 private
@@ -30,7 +29,11 @@ def find_rating
 end
 
 def rating_params
-    params.permit(:rating, :user_id, :experience_id)
+    params.permit(:experience_id, :user_id, :rating)
 end
+
+# def rating_params
+#     params.permit(:rating)
+# end
 
 end
