@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Login from '../pages/Login';
 import Home from '../components/Home';
+import Experience from '../pages/Experience';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
   return (
     <div className="App">
       <Home user={user} setUser={setUser}/>
-      apples
+    apples
+    <Experience />
     </div>
   );
 }

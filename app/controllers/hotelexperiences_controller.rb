@@ -1,0 +1,2 @@
+class HotelexperiencesController < ApplicationController
+end

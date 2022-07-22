@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :favorites
+  resources :hotelexperiences
+  resources :hotels
+  resources :locations
+  resources :categories
+  resources :experiences
+  resources :ratings
   resources :users, only: [:create, :show, :update]
 
   post "/signup", to: "users#create"

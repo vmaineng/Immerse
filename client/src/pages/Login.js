@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+//import React, {useState} from 'react';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 
 function Login({setUser}) {
-  const [isLogin, setIsLogin] = useState(true);
+ // const [isLogin, setIsLogin] = useState(true);
 
   return (
     <div>
-      {/* <LoginForm setUser={setUser}/>
-      <SignupForm setUser={setUser}/> */}
+      <LoginForm setUser={setUser}/>
+      <SignupForm setUser={setUser}/>
 
-{isLogin ? (
+{/* {isLogin ? (
                 <>
                   <LoginForm setUser={setUser} />
                   
@@ -31,7 +31,7 @@ function Login({setUser}) {
                     </button>
                 
                 </>
-              )}
+              )} */}
 
     </div>
   );
