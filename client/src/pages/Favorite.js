@@ -21,8 +21,6 @@ function Favorite() {
     });
     setFavorites(updatedFavoritesArray);
   }
-console.log(favorites)
-  //if (favorites )
 
   const favoriteCards = favorites.map((favorite) => (
     <FavoriteCard

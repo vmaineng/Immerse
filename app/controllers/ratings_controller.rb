@@ -5,7 +5,7 @@ def index
 end
 
 def create
-    #experience = Experience.find_by(id: params[:id])
+    experience = Experience.find_by(id: params[:id])
     rating = Rating.create!( rating_params)
     render json: rating, status: :created
 end

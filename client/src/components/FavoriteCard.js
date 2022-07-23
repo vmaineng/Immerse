@@ -31,8 +31,9 @@ function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
   return (
     <div>FavoriteCard
         {favorite.name}
+        {favorite.description}
       <button onClick={handleIsCompleted}>Update</button>
-      <button onclick={handleDelete}>Delete</button>
+      <button onClick={() => handleDelete(favorite.id)}>Delete</button>
     </div>
   )
 }
