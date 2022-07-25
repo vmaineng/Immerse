@@ -16,6 +16,7 @@ function deleteRating(id) {
     setRatings(updatedRatings);
 }
 
+
 function handleUpdateRating(updatedRating) {
     const updatedRatingsArray = ratings.map((rating) => {
         return rating.id === updatedRating.id ? updatedRating : rating;

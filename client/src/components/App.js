@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Experience from "../pages/Experience";
 import Favorite from "../pages/Favorite";
 import { Routes, Route } from "react-router-dom";
+import Rating from "../pages/Rating";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -18,14 +20,18 @@ function App() {
 
   if (!user) return <Login setUser={setUser} />;
 
+
   return (
     <div className="App">
+   
       <Navbar user={user} setUser={setUser} />
       apples
       <Routes>
         <Route path='/home' element={<Experience />} />
         <Route path='/favorites' element={<Favorite />} />
+        <Route path='/ratings' element={<Rating />} />
       </Routes>
+   
     </div>
   );
 }

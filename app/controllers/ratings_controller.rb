@@ -5,8 +5,13 @@ def index
 end
 
 def create
-    experience = Experience.find_by(id: params[:id])
-    rating = Rating.create!( rating_params)
+    experience = Experience.find_by(id: params[:experience_id])
+    # byebug
+    rating = Rating.new()
+    rating.user_id = @current_user.id
+    rating.experience_id = experience.id
+    rating.save
+    # rating = Rating.create!( rating_params)
     render json: rating, status: :created
 end
 
@@ -28,12 +33,9 @@ def find_rating
     Rating.find(params[:id])
 end
 
-def rating_params
-    params.permit(:experience_id, :user_id, :rating)
-end
-
 # def rating_params
-#     params.permit(:rating)
+#     params.permit(:experience_id, :user_id, :rating)
 # end
+
 
 end

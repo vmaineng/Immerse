@@ -1,9 +1,14 @@
 class FavoritesController < ApplicationController
 
     def create
-        experience = Experience.find_by(id: params[:id])
+        experience = Experience.find_by(id: params[:experience_id])
+        # byebug
+        favorite = Favorite.new()
+        favorite.user_id = @current_user.id
+        favorite.experience_id = experience.id
+        favorite.save
         # experience_id: experience.id, user_id: @current_user.id, completed: false
-        favorite = Favorite.create!(favorite_params)
+        #favorite = Favorite.create!(favorite_params)
         render json: favorite, status: :created
     end
 
@@ -27,8 +32,8 @@ def find_favorite
     Favorite.find(params[:id])
 end
 
-def favorite_params
-    params.permit(:user_id, :experience_id, :completed)
-end
+# def favorite_params
+#     params.permit(:completed, :user_id, :experience_id)
+# end
 
 end

@@ -1,3 +1,10 @@
+html {
+  height:100%
+}
+body {
+  background: url("../src/images/travel.png") no-repeat bottom center fixed !important;
+}
+/* 
 .App {
   text-align: center;
 }
@@ -35,4 +42,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

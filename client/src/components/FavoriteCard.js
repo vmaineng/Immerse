@@ -17,9 +17,7 @@ function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
     function handleIsCompleted() {
         fetch(`/favorites/${id}`, {
           method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ completed: !isCompleted }),
         })
           .then((r) => r.json())
@@ -30,8 +28,8 @@ function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
 
   return (
     <div>FavoriteCard
-        {favorite.name}
-        {favorite.description}
+       <p> {favorite.experience.name}</p>
+        {favorite.experience.description}
       <button onClick={handleIsCompleted}>Update</button>
       <button onClick={() => handleDelete(favorite.id)}>Delete</button>
     </div>
