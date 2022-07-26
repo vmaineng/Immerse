@@ -5,6 +5,7 @@ import Experience from "../pages/Experience";
 import Favorite from "../pages/Favorite";
 import { Routes, Route } from "react-router-dom";
 import Rating from "../pages/Rating";
+import Hotel from "../pages/Hotel";
 
 
 function App() {
@@ -25,11 +26,12 @@ function App() {
     <div className="App">
    
       <Navbar user={user} setUser={setUser} />
-      apples
+    
       <Routes>
         <Route path='/home' element={<Experience />} />
         <Route path='/favorites' element={<Favorite />} />
         <Route path='/ratings' element={<Rating />} />
+        <Route path='/hotels' element={<Hotel />} />
       </Routes>
    
     </div>

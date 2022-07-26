@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Grid, Card, Button} from 'semantic-ui-react'
 
 function ExperienceCard({experience}) {
 
@@ -26,6 +26,13 @@ fetch('/ratings', {
 });
 }
 
+
+//get hotel
+// function handleGetHotel(e) {
+//   fetch('/hotels')
+//   .then(r => r.json())
+//   .then
+
 // const handleRating= () => {
 //   const udpatedRatings = {
 //     ratings: experience.ratings + 1,
@@ -41,11 +48,26 @@ fetch('/ratings', {
   
 // }
   return (
-    <div> <p>{experience.name}</p>
-    {experience.description}
+   
+    <div>  
+      <Grid>
+        <Grid.Row> 
+          <Grid.Column>
+            <p />
+      <Card>
+      <Card.Content>
+      <Card.Header>{experience.name}</Card.Header>
+    <Card.Description>{experience.description}</Card.Description>
     {experience.price}
-  <button onClick={handleAddRating}> Leave rating </button>
-  <button onClick={handleAddFavorite} >Add to favorites</button>
+    {experience.dt_booked_from}
+    {experience.dt_booked_to}
+  <Button basic color ='purple' onClick={handleAddRating}> Leave rating </Button>
+  <Button basic color='magenta' onClick={handleAddFavorite} >Add to favorites</Button>
+  </Card.Content>
+    </Card>
+    </Grid.Column>
+    </Grid.Row>
+    </Grid>
     </div>
   )
 }

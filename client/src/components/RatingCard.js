@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RatingCard({rating, deleteRating, updateRating}) {
+function RatingCard({review, deleteRating, updateRating}) {
 
 function handleDeleteRating(id) {
     fetch(`/ratings/${id}`, {
@@ -18,7 +18,7 @@ function handleUpdateRating(id){
     fetch(`/ratings/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({rating_id: rating.rating}),
+        body: JSON.stringify({rating: review}),
     })
     .then((r) => r.json())
     .then((updatedRating) => {
@@ -28,7 +28,8 @@ function handleUpdateRating(id){
 
   return (
     <div>RatingCard
-        {rating.rating}
+        <p>{review.experience.name}</p>
+        <li> {review.rating}</li>
         <button onClick={handleUpdateRating}>Modify</button>
         <button onClick={handleDeleteRating}>Delete</button>
     </div>
