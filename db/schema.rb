@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2022_07_22_173814) do
   create_table "ratings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "experience_id", null: false
-    t.integer "rating"
+    t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["experience_id"], name: "index_ratings_on_experience_id"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Header, Form } from 'semantic-ui-react'
 
 function SignupForm({setUser}) {
     const [username, setUsername] = useState('');
@@ -33,8 +34,9 @@ function SignupForm({setUser}) {
       }
 
   return (
-    <div>Signup
-    <form onSubmit={handleSubmit}>
+    <div>
+      <Header as='h1'> Register today! </Header>
+    <Form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input
         type="text"
@@ -71,7 +73,7 @@ function SignupForm({setUser}) {
       {errors.map((err) => (
         <error key={err}>{err}</error>
       ))}
-  </form>
+  </Form>
   </div>
   )
 }

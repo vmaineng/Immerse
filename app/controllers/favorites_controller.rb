@@ -32,8 +32,8 @@ def find_favorite
     Favorite.find(params[:id])
 end
 
-# def favorite_params
-#     params.permit(:completed, :user_id, :experience_id)
-# end
+def favorite_params
+    params.permit(:completed, :user_id, :experience_id)
+end
 
 end

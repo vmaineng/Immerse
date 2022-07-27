@@ -37,7 +37,7 @@ function handleUpdateRating(id){
       <Card>
       <Card.Content>
         <p>{rating.experience.name}</p>
-        <li> {rating.rating}</li>
+        <li> {rating.score}</li>
         <Button onClick={handleUpdateRating}>Modify</Button>
         <Button onClick={() => handleDeleteRating(rating.id)}>Delete</Button>
         </Card.Content>
