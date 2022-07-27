@@ -3,30 +3,30 @@ import RatingCard from '../components/RatingCard';
 
 
 function Rating() {
-    const [reviews, setReviews] = useState([]);
+    const [ratings, setRatings] = useState([]);
 
 useEffect(() => {
     fetch('/ratings')
     .then(r=> r.json())
-    .then(setReviews);
+    .then(setRatings);
 }, []);
 
 function deleteRating(id) {
-    const updatedRatings = reviews.filter((rating) => rating.id !== id);
-    setReviews(updatedRatings);
+    const updatedRatings = ratings.filter((rating) => rating.id !== id);
+    setRatings(updatedRatings);
 }
 
 
 function handleUpdateRating(updatedRating) {
-    const updatedRatingsArray = reviews.map((rating) => {
+    const updatedRatingsArray = ratings.map((rating) => {
         return rating.id === updatedRating.id ? updatedRating : rating;
     });
-    setReviews(updatedRatingsArray);
+    setRatings(updatedRatingsArray);
 }
 
-const ratingCards = reviews.map((review) => (
+const ratingCards = ratings.map((rating) => (
     <RatingCard
-    review={review}
+    rating={rating}
     deleteRating={deleteRating}
     updateRating={handleUpdateRating}
     />

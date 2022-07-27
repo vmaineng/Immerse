@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link } from 'react-router-dom';
-import {Header, Menu, Button} from 'semantic-ui-react'
+import {Header, Menu, Button, Icon} from 'semantic-ui-react'
 
 function Navbar({user, setUser}) {
 function handleLogoutClick() {
@@ -21,7 +21,9 @@ function handleLogoutClick() {
       <Menu.Item ><Link to='/favorites'>Saved Deals</Link></Menu.Item>
       <Menu.Item ><Link to='/ratings'>Rate Experience</Link></Menu.Item>
       <Menu.Item ><Link to='/hotels'>Find a Hotel </Link></Menu.Item>
-      <Menu.Item position='right'> <Button onClick={handleLogoutClick}> Logout</Button></Menu.Item>
+    
+      <Menu.Item position='right'> <Button color="red" basic icon onClick={handleLogoutClick}>
+        <Icon name="log out">Logout</Icon> </Button></Menu.Item>
       </Menu>
     </div>
   

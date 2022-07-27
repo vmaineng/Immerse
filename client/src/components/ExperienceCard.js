@@ -52,7 +52,7 @@ fetch('/ratings', {
     <div>  
       <Grid>
         <Grid.Row> 
-          <Grid.Column>
+        
             <p />
       <Card>
       <Card.Content>
@@ -62,10 +62,10 @@ fetch('/ratings', {
     {experience.dt_booked_from}
     {experience.dt_booked_to}
   <Button basic color ='purple' onClick={handleAddRating}> Leave rating </Button>
-  <Button basic color='magenta' onClick={handleAddFavorite} >Add to favorites</Button>
+  <Button basic color='blue' onClick={handleAddFavorite} >Add to favorites</Button>
   </Card.Content>
     </Card>
-    </Grid.Column>
+  
     </Grid.Row>
     </Grid>
     </div>

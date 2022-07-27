@@ -1,4 +1,5 @@
 import React from 'react'
+import { Grid, Card, Button} from 'semantic-ui-react'
 
 function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
     const { id, completed: isCompleted } = favorite;
@@ -27,11 +28,22 @@ function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
       }
 
   return (
-    <div>FavoriteCard
+    <div>
+        <Grid>
+        <Grid.Row> 
+        
+            <p />
+      <Card>
+      <Card.Content>
        <p> {favorite.experience.name}</p>
-        {favorite.experience.description}
-      <button onClick={handleIsCompleted}>Update</button>
-      <button onClick={() => handleDelete(favorite.id)}>Delete</button>
+       <Card.Description> {favorite.experience.description}</Card.Description>
+      <Button onClick={handleIsCompleted}>Update</Button>
+      <Button onClick={() => handleDelete(favorite.id)}>Delete</Button>
+      </Card.Content>
+      </Card>
+  
+  </Grid.Row>
+  </Grid>
     </div>
   )
 }

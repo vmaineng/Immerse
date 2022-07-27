@@ -22,6 +22,7 @@ def update
 end
 
 def destroy
+    # byebug
     find_rating.destroy
     head :no_content
 end
@@ -31,6 +32,7 @@ private
 
 def find_rating
     Rating.find(params[:id])
+   
 end
 
 # def rating_params

@@ -1,6 +1,8 @@
 import React from 'react'
+import { Grid, Card, Button} from 'semantic-ui-react'
 
-function RatingCard({review, deleteRating, updateRating}) {
+function RatingCard({rating, deleteRating, updateRating}) {
+// const {id, rating} = rating
 
 function handleDeleteRating(id) {
     fetch(`/ratings/${id}`, {
@@ -18,7 +20,7 @@ function handleUpdateRating(id){
     fetch(`/ratings/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({rating: review}),
+        body: JSON.stringify({rating: rating}),
     })
     .then((r) => r.json())
     .then((updatedRating) => {
@@ -27,11 +29,22 @@ function handleUpdateRating(id){
 }
 
   return (
-    <div>RatingCard
-        <p>{review.experience.name}</p>
-        <li> {review.rating}</li>
-        <button onClick={handleUpdateRating}>Modify</button>
-        <button onClick={handleDeleteRating}>Delete</button>
+    <div>
+          <Grid>
+        <Grid.Row> 
+        
+            <p />
+      <Card>
+      <Card.Content>
+        <p>{rating.experience.name}</p>
+        <li> {rating.rating}</li>
+        <Button onClick={handleUpdateRating}>Modify</Button>
+        <Button onClick={() => handleDeleteRating(rating.id)}>Delete</Button>
+        </Card.Content>
+        </Card>
+  
+  </Grid.Row>
+  </Grid>
     </div>
   )
 }
