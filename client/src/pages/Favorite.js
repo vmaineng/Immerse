@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import FavoriteCard from '../components/FavoriteCard';
+import React, { useState, useEffect } from "react";
+import FavoriteCard from "../components/FavoriteCard";
 
 function Favorite() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    fetch('/favorites')
-      .then(r=> r.json())
+    fetch("/favorites")
+      .then((r) => r.json())
       .then(setFavorites);
   }, []);
 
@@ -30,11 +30,11 @@ function Favorite() {
     />
   ));
 
- return (
-   
-      <div>Favorite 
-          {favoriteCards}</div>
-
+  return (
+    <div>
+      Favorite
+      {favoriteCards}
+    </div>
   );
 }
 

@@ -9,8 +9,10 @@ import Rating from "../pages/Rating";
 import Hotel from "../pages/Hotel";
 import {Segment, Header, Container, Grid, List } from "semantic-ui-react"
 
+
 function App() {
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,8 +29,9 @@ function App() {
     <div className="App">
    
       <Navbar user={user} setUser={setUser} />
-    
+   
       <Routes>
+        
         <Route path='/home' element={<Experience />} />
         <Route path='/favorites' element={<Favorite />} />
         <Route path='/ratings' element={<Rating />} />
