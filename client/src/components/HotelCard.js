@@ -12,7 +12,6 @@ function HotelCard({hotel}) {
       <Card>
       <Card.Content>
        <Card.Header> <p>{hotel.name}</p></Card.Header>
-     
        <Card.Description>{hotel.location}</Card.Description>
         </Card.Content>
         </Card>

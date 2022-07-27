@@ -37,7 +37,7 @@ function FavoriteCard({favorite, deleteFavorite, updateFavorite}) {
       <Card.Content>
        <p> {favorite.experience.name}</p>
        <Card.Description> {favorite.experience.description}</Card.Description>
-      <Button onClick={handleIsCompleted}>Update</Button>
+      <Button onClick={handleIsCompleted}>{isCompleted? "Wishlist" : "Done"}</Button>
       <Button onClick={() => handleDelete(favorite.id)}>Delete</Button>
       </Card.Content>
       </Card>

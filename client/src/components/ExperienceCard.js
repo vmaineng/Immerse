@@ -62,7 +62,7 @@ fetch('/ratings', {
     {experience.dt_booked_from}
     {experience.dt_booked_to}
   <Button basic color ='purple' onClick={handleAddRating}> Leave rating </Button>
-  <Button basic color='blue' onClick={handleAddFavorite} >Add to favorites</Button>
+  <Button basic color='blue' onClick={handleAddFavorite} >Save Deal</Button>
   </Card.Content>
     </Card>
   
