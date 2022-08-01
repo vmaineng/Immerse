@@ -8,10 +8,21 @@ import { Routes, Route } from "react-router-dom";
 import Rating from "../pages/Rating";
 import Hotel from "../pages/Hotel";
 import {Segment, Header, Container, Grid, List } from "semantic-ui-react"
+import Search from "../components/Search";
+import ContactForm from "../components/ContactForm";
 
 
 function App() {
   const [user, setUser] = useState(null);
+
+  const [experiences, setExperience] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    fetch("/experiences")
+      .then((r) => r.json())
+      .then(setExperience);
+  }, []);
 
 
   useEffect(() => {
@@ -22,22 +33,38 @@ function App() {
     });
   }, []);
 
+ const displayedExperience = experiences.filter((experience) => {
+    return experience.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   if (!user) return <Login setUser={setUser} />;
 
 
   return (
-    <div className="App">
+    <div className="App" >
    
       <Navbar user={user} setUser={setUser} />
-   
+      <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <Routes>
         
-        <Route path='/home' element={<Experience />} />
+        <Route path='/home' element={<Experience experiences={displayedExperience} />} />
         <Route path='/favorites' element={<Favorite />} />
         <Route path='/ratings' element={<Rating />} />
         <Route path='/hotels' element={<Hotel />} />
+        <Route path='/contactform' element={<ContactForm />} />
       </Routes>
-
+      {/* <div class="col-12">
+    <label for="date" class="col-sm-1 col-form-label">Date</label>
+    <div class="input-group date" id="datepicker">
+        <input type="text" class="form-control">
+        <span class="input-group-append">
+        <span class="input-group-text bg-white d-block">
+        <i class="fa fa-calendar"></i>
+        </span>
+        </span>
+        </input>
+    </div>
+</div>     */}
 
       <Segment inverted vertical style={{ padding: '2em 0em' }}>
       <Container>
@@ -77,3 +104,7 @@ function App() {
 }
 
 export default App;
+
+
+//send link to contact form below,
+//then set up new component for contact form

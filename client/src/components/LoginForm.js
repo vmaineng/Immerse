@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,10 +22,10 @@ function LoginForm({ setUser }) {
         r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
-        console.log(errors);
       }
-    });
-  }
+    })
+    .then(navigate('/home'));
+}
 
   return (
     <div>
@@ -48,7 +50,7 @@ function LoginForm({ setUser }) {
 
         <button type="submit">Log in </button>
 
-        {errors.map((err) => (
+        {errors?.map((err) => (
           <error key={err}>{err}</error>
         ))}
       </Form>

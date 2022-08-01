@@ -12,8 +12,6 @@ body {
   background-color: #ceceee;
 }
 
-
-/* 
 .App {
   text-align: center;
 }
@@ -28,6 +26,7 @@ body {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -51,4 +50,11 @@ body {
   to {
     transform: rotate(360deg);
   }
-} */
+} 
+
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}

@@ -22,6 +22,7 @@ function handleLogoutClick() {
       <Menu.Item ><Link to='/favorites'>Saved Deals</Link></Menu.Item>
       <Menu.Item ><Link to='/ratings'>Rate Experience</Link></Menu.Item>
       <Menu.Item ><Link to='/hotels'>Find a Hotel </Link></Menu.Item>
+      <Menu.Item ><Link to='/contactform'>Contact Us </Link></Menu.Item>
     
       <Menu.Item position='right'> <Button color="red" basic icon onClick={handleLogoutClick}>
         <Icon name="log out">Logout</Icon> </Button></Menu.Item>
