@@ -1,35 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { Form } from "semantic-ui-react";
+import { useNavigate } from 'react-router-dom';
 
-function LoginForm({setUser}) {
-    const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function LoginForm({ setUser }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch('/login', {
-      method: 'POST',
+    fetch("/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     })
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => setUser(user));
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-          console.log(errors);
-        }
-      });
-  }
+    .then(navigate('/home'));
+}
 
   return (
     <div>
-<form onSubmit={handleSubmit}>
-      
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -38,8 +38,7 @@ function LoginForm({setUser}) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      
-      
+
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -48,18 +47,15 @@ function LoginForm({setUser}) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      
-      
+
         <button type="submit">Log in </button>
-      
-      
-        {errors.map((err) => (
+
+        {errors?.map((err) => (
           <error key={err}>{err}</error>
         ))}
-      
-    </form>
+      </Form>
     </div>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;

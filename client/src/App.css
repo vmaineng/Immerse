@@ -1,3 +1,17 @@
+
+html {
+  height:100%
+}
+body {
+  background: url("../src/images/trav.png") center fixed !important;
+}
+
+.homeContainer {
+  position: relative;
+  text-align: center;
+  background-color: #ceceee;
+}
+
 .App {
   text-align: center;
 }
@@ -12,6 +26,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +50,11 @@
   to {
     transform: rotate(360deg);
   }
+} 
+
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
 }
