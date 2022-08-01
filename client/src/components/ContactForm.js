@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Grid, Card, Button } from "semantic-ui-react";
 
 const Result = () => {
     return(
@@ -33,9 +34,14 @@ function ContactForm() {
 
   return (
     <div>
-      ContactForm
+         <Grid>
+        <Grid.Row>
+   
+      <Card centered stackable>
+            <Card.Content>
+       <Card.Header textAlign="center"> ContactForm</Card.Header>    
       <form action="" onSubmit={sendEmail}>
-        <h2> Say Hello!</h2>
+        <h2> Ask us a question</h2>
         <span> Full Name</span>
         <br />
         <input className="input100" type="text" name="fullName" required />
@@ -45,15 +51,21 @@ function ContactForm() {
         <input className="input100" type="text" name="phone" required />
         <br />
         <span>Enter Email</span>
+        <br />
         <input className="input100" type="text" name="email" required />
       <br /> 
       <span> Message</span>
+      <br />
       <textarea name="message" required></textarea>
       <br />
-    <button> Submit</button>
+    <Button> Submit</Button>
 {result ? <Result /> : null }
 
       </form>
+      </Card.Content>
+      </Card>
+      </Grid.Row>
+      </Grid>
     </div>
   );
 }
