@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid, Card, Button } from "semantic-ui-react";
 
+
+
 function RatingCard({ rating, deleteRating, updateRating }) {
+ 
+  const [ratings, setRating] = useState(0);
+  
 
   function handleDeleteRating(id) {
     fetch(`/ratings/${id}`, {
@@ -34,11 +39,25 @@ function RatingCard({ rating, deleteRating, updateRating }) {
           <Card>
             <Card.Content>
               <p>{rating.experience.name}</p>
-              <li> {rating.score}</li>
+              {[...Array(5)].map((star, index) => {
+        index += 1;
+        return (
+          <button
+            type="button"
+            key={index}
+            className={index <= ratings ? "on" : "off"}
+            onClick={() => setRating(index)}
+          >
+            <span className="star">&#9733;</span>
+          </button>
+        );
+      })}
+              <li> {rating.rating}</li>
               <Button onClick={handleUpdateRating}>Modify</Button>
               <Button onClick={() => handleDeleteRating(rating.id)}>
                 Delete
               </Button>
+            
             </Card.Content>
           </Card>
         </Grid.Row>

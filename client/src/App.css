@@ -12,6 +12,19 @@ body {
   background-color: #ceceee;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+
 .App {
   text-align: center;
 }
