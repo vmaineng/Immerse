@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, Card, Button } from "semantic-ui-react";
 
 function RatingCard({ rating, deleteRating, updateRating }) {
-  // const {id, rating} = rating
 
   function handleDeleteRating(id) {
     fetch(`/ratings/${id}`, {

@@ -14,16 +14,8 @@ import ContactForm from "../components/ContactForm";
 
 function App() {
   const [user, setUser] = useState(null);
-
   const [experiences, setExperience] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    fetch("/experiences")
-      .then((r) => r.json())
-      .then(setExperience);
-  }, []);
-
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -33,9 +25,15 @@ function App() {
     });
   }, []);
 
- const displayedExperience = experiences.filter((experience) => {
-    return experience.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  useEffect(() => {
+    fetch("/experiences")
+      .then((r) => r.json())
+      .then(setExperience);
+  }, []);
+
+ const displayedExperience = experiences.filter((experience) => 
+    experience.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   if (!user) return <Login setUser={setUser} />;
 
@@ -105,6 +103,3 @@ function App() {
 
 export default App;
 
-
-//send link to contact form below,
-//then set up new component for contact form
