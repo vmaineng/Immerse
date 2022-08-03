@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Header, Form } from 'semantic-ui-react'
 
+
 function SignupForm({setUser}) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
