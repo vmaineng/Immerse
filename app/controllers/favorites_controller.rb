@@ -2,13 +2,7 @@ class FavoritesController < ApplicationController
 
     def create
         experience = Experience.find_by(id: params[:experience_id])
-        # byebug
-        favorite = Favorite.new()
-        favorite.user_id = @current_user.id
-        favorite.experience_id = experience.id
-        favorite.save
-        # experience_id: experience.id, user_id: @current_user.id, completed: false
-        #favorite = Favorite.create!(favorite_params)
+        favorite = @current_user.favorites.create!(favorite_params)
         render json: favorite, status: :created
     end
 

@@ -9,9 +9,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Grid, Card, Button } from "semantic-ui-react";
 import Moment from 'moment';
+import Ratingform from "../components/Ratingform";
 
-function ExperienceCard({ experience }) {
+function ExperienceCard({ experience, setUser}) {
+
+const {id, name, description, price, dt_booked_from, dt_booked_to} =experience
+
   const formatDate = Moment().format('MMM Do YY')
+  const [ratings, setRatings] = useState(0);
 
   function handleAddFavorite(e) {
     fetch("/favorites", {
@@ -62,14 +67,21 @@ function ExperienceCard({ experience }) {
 
   //each javascript objects need a key-value pair
 
-  function handleAddRating(e) {
+  //this function saves an experience to 'Rate Experience' page
+  function handleAddRatingNew(e) {
     fetch("/ratings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ experience_id: experience.id }),
+      body: JSON.stringify({ experience_id: experience.id, rating: ratings }),
     });
+  }
+
+  function handleAddRating(newRating) {
+    console.log('newRating: ', newRating);
+    const updatedRatingsArray = [newRating];
+    setRatings(updatedRatingsArray);
   }
 
   //get hotel
@@ -100,20 +112,25 @@ function ExperienceCard({ experience }) {
           <p />
           <Card centered stackable>
             <Card.Content>
-              <Card.Header textAlign="center">{experience.name}</Card.Header>
+              <Card.Header textAlign="center">{name}</Card.Header>
               <Card.Description textAlign="center">
-                {experience.description}
+                {description}
               </Card.Description>
-              {experience.price}
-              {formatDate} 
-              {experience.dt_booked_from}
-              {formatDate}
-              {experience.dt_booked_to}
+              price: {price}
+              {/* {formatDate}  */}
+              <br />
+              Date booked from: {dt_booked_from}
+              <br />
+              {/* {formatDate} */}
+             Date booked to: {dt_booked_to}
               {/* {have to format this better} */}
-              <Button basic color="purple" onClick={handleAddRating}>
+              <Button basic color="purple" onClick={handleAddRatingNew}>
                 {" "}
                 Leave rating{" "}
               </Button>
+
+              <Ratingform onAddRating={handleAddRating} id = {id}/>
+
               <Button basic color="blue" onClick={handleAddFavorite}>
                 Save Deal
               </Button>
@@ -151,5 +168,5 @@ function ExperienceCard({ experience }) {
 
 export default ExperienceCard;
 
-
+//hide or show the form for rating card
 //might have to add calendar date to when the experience card is booked vs saving a deal 
