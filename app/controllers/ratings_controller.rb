@@ -6,11 +6,6 @@ end
 
 def create
     experience = Experience.find_by(id: params[:experience_id])
-    # byebug
-#     rating = Rating.new()
-#    rating.user_id = @current_user.id
-#    rating.experience_id = experience.id
-#    rating.save
     rating = @current_user.ratings.create!( rating_params)
     render json: rating, status: :created
 end
@@ -22,7 +17,6 @@ def update
 end
 
 def destroy
-    # byebug
     find_rating.destroy
     head :no_content
 end
