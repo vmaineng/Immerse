@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Header, Form } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom';
 
 
 function SignupForm({setUser}) {
@@ -8,6 +9,7 @@ function SignupForm({setUser}) {
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [errors, setErrors] = useState([]);
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,6 +34,7 @@ function SignupForm({setUser}) {
               r.json().then((err) => setErrors(err.errors));
             }
           })
+          .then(navigate('/home'))
       }
 
   return (
