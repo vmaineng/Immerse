@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link} from 'react-router-dom'
 import { Grid, Card } from "semantic-ui-react";
 
 function HotelCard({ hotel }) {

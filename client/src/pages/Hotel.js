@@ -10,7 +10,9 @@ function Hotel() {
       .then(setHotel);
   }, []);
 
-  const hotelCards = hotels.map((hotel) => <HotelCard hotel={hotel} />);
+  const hotelCards = hotels.map((hotel) => (
+    <HotelCard key={hotel.id} hotel={hotel} />
+  ));
 
   return (
     <div>
