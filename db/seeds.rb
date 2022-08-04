@@ -23,10 +23,10 @@ c4 = Category.create(name: "Relax")
 
 
 puts "Experience details.."
-e1 = Experience.create(name: "Relax and Rest in Ubud", description: "Take a moment to relax and restore in this beautiful scenery", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c4.id, location_id: l2.id)
-e2 = Experience.create(name: "Cruise the Carribean Islands", description: "Get enchanted by the beautiful islands. Book today!", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c3.id, location_id: l1.id)
-e3 = Experience.create(name: "Camp outdoors in the midwest", description: "Roast some delicious smores and discuss nstories amongst each other here",dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c2.id, location_id: l4.id)
-e4 = Experience.create(name: "Glass Beach", description: "Check out Glass Beach in northern California", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c1.id, location_id: l3.id)
+e1 = Experience.create(name: "Relax and Rest in Ubud", image: "/ubud.png", description: "Take a moment to relax and restore in this beautiful scenery", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c4.id, location_id: l2.id)
+e2 = Experience.create(name: "Cruise the Carribean Islands", image: "/cruise.png", description: "Get enchanted by the beautiful islands. Book today!", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c3.id, location_id: l1.id)
+e3 = Experience.create(name: "Camp outdoors in the midwest", image: "/camping.png", description: "Roast some delicious smores and discuss nstories amongst each other here",dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c2.id, location_id: l4.id)
+e4 = Experience.create(name: "Glass Beach", image: "/glass.png", description: "Check out Glass Beach in northern California", dt_booked_from: start_time, dt_booked_to: end_time, price: 50, category_id: c1.id, location_id: l3.id)
 
 puts "Hotel links.."
 h1 = Hotel.create(name: "Ink 48", location: "https://www.ink48.com/")

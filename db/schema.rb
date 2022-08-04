@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_07_22_173814) do
 
   create_table "experiences", force: :cascade do |t|
     t.string "name"
+    t.string "image"
     t.text "description"
     t.date "dt_booked_from"
     t.date "dt_booked_to"

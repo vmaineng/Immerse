@@ -11,9 +11,9 @@ import { Grid, Card, Button } from "semantic-ui-react";
 import Moment from 'moment';
 import Ratingform from "../components/Ratingform";
 
-function ExperienceCard({ experience, setUser}) {
+function ExperienceCard({ experience}) {
 
-const {id, name, description, price, dt_booked_from, dt_booked_to} =experience
+const {id, name, image, description, price, dt_booked_from, dt_booked_to} =experience
 
   const formatDate = Moment().format('MMM Do YY')
   const [ratings, setRatings] = useState(0);
@@ -109,6 +109,7 @@ const handleClick = () => setIsOn(true)
           <Card centered stackable>
             <Card.Content>
               <Card.Header textAlign="center">{name}</Card.Header>
+              image: {image}
               <Card.Description textAlign="center">
                 {description}
               </Card.Description>

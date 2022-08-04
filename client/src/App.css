@@ -25,6 +25,10 @@ button {
   color: #ccc;
 }
 
+.left-aligned-container {
+  float: left;
+}
+
 .App {
   text-align: center;
 }
