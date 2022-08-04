@@ -35,6 +35,7 @@ function FavoriteCard({ favorite, deleteFavorite, updateFavorite }) {
           <Card>
             <Card.Content>
               <p> {favorite.experience.name}</p>
+              <img src = {favorite.experience.image} alt ="favorite" />
               <Card.Description>
                 {" "}
                 {favorite.experience.description}

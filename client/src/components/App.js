@@ -10,6 +10,7 @@ import Hotel from "../pages/Hotel";
 import {Segment, Header, Container, Grid, List } from "semantic-ui-react"
 import Search from "../components/Search";
 import ContactForm from "../components/ContactForm";
+import Hero from "../components/Hero";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     <div className="App" >
    
       <Navbar user={user} setUser={setUser} />
+      <Hero />
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <Routes>
         
