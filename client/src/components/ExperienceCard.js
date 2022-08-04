@@ -17,6 +17,7 @@ const {id, name, description, price, dt_booked_from, dt_booked_to} =experience
 
   const formatDate = Moment().format('MMM Do YY')
   const [ratings, setRatings] = useState(0);
+  const [isOn, setIsOn] = useState(false);
 
   function handleAddFavorite(e) {
     fetch("/favorites", {
@@ -68,18 +69,13 @@ const {id, name, description, price, dt_booked_from, dt_booked_to} =experience
   //each javascript objects need a key-value pair
 
   //this function saves an experience to 'Rate Experience' page
-  function handleAddRatingNew(e) {
-    fetch("/ratings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ experience_id: experience.id, rating: ratings }),
-    });
-  }
+  // function handleClick() {
+  //   setIsOn((isOn) => !isOn);
+  // }
+
+const handleClick = () => setIsOn(true)
 
   function handleAddRating(newRating) {
-    console.log('newRating: ', newRating);
     const updatedRatingsArray = [newRating];
     setRatings(updatedRatingsArray);
   }
@@ -124,13 +120,16 @@ const {id, name, description, price, dt_booked_from, dt_booked_to} =experience
               {/* {formatDate} */}
              Date booked to: {dt_booked_to}
               {/* {have to format this better} */}
-              <Button basic color="purple" onClick={handleAddRatingNew}>
-                {" "}
-                Leave rating{" "}
+              <Button basic color="purple" onClick={handleClick}> Leave a rating
+{ isOn && <Ratingform onAddRating={handleAddRating} id = {id}/>  }
+
+                {/* {isOn ? 
+              <Ratingform onAddRating={handleAddRating} id = {id}/> 
+: 
+"Show Rating"            } */}
               </Button>
 
-              <Ratingform onAddRating={handleAddRating} id = {id}/>
-
+              
               <Button basic color="blue" onClick={handleAddFavorite}>
                 Save Deal
               </Button>
