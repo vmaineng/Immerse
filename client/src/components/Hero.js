@@ -2,7 +2,7 @@ import React from "react";
 import homeImage from "../images/hero1.png";
 export default function Hero() {
   return (
-    <p id="hero">
+    <div id="hero">
       <div className="background">
         <img src={homeImage} alt="" />
       </div>
@@ -20,7 +20,7 @@ export default function Hero() {
           <button>Explore Now</button>
         </div>
       </div>
-    </p>
+    </div>
   );
 }
 

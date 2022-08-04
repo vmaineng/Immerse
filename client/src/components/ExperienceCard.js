@@ -8,14 +8,14 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Grid, Card, Button } from "semantic-ui-react";
-import Moment from 'moment';
+import Moment from "moment";
 import Ratingform from "../components/Ratingform";
 
-function ExperienceCard({ experience}) {
+function ExperienceCard({ experience }) {
+  const { id, name, image, description, price, dt_booked_from, dt_booked_to } =
+    experience;
 
-const {id, name, image, description, price, dt_booked_from, dt_booked_to} =experience
-
-  const formatDate = Moment().format('MMM Do YY')
+  const formatDate = Moment().format("MMM Do YY");
   const [ratings, setRatings] = useState(0);
   const [isOn, setIsOn] = useState(false);
 
@@ -73,7 +73,7 @@ const {id, name, image, description, price, dt_booked_from, dt_booked_to} =exper
   //   setIsOn((isOn) => !isOn);
   // }
 
-const handleClick = () => setIsOn(true)
+  const handleClick = () => setIsOn(true);
 
   function handleAddRating(newRating) {
     const updatedRatingsArray = [newRating];
@@ -109,7 +109,7 @@ const handleClick = () => setIsOn(true)
           <Card centered stackable>
             <Card.Content>
               <Card.Header textAlign="center">{name}</Card.Header>
-              image: {image}
+              image: <img src={image} alt="image" />
               <Card.Description textAlign="center">
                 {description}
               </Card.Description>
@@ -119,22 +119,20 @@ const handleClick = () => setIsOn(true)
               Date booked from: {dt_booked_from}
               <br />
               {/* {formatDate} */}
-             Date booked to: {dt_booked_to}
+              Date booked to: {dt_booked_to}
               {/* {have to format this better} */}
-              <Button basic color="purple" onClick={handleClick}> Leave a rating
-{ isOn && <Ratingform onAddRating={handleAddRating} id = {id}/>  }
-
+              <Button basic color="purple" onClick={handleClick}>
+                {" "}
+                Leave a rating
+                {isOn && <Ratingform onAddRating={handleAddRating} id={id} />}
                 {/* {isOn ? 
               <Ratingform onAddRating={handleAddRating} id = {id}/> 
 : 
 "Show Rating"            } */}
               </Button>
-
-              
               <Button basic color="blue" onClick={handleAddFavorite}>
                 Save Deal
               </Button>
-
               <input
                 type="text"
                 placeholder="Add Title"
@@ -169,4 +167,4 @@ const handleClick = () => setIsOn(true)
 export default ExperienceCard;
 
 //hide or show the form for rating card
-//might have to add calendar date to when the experience card is booked vs saving a deal 
+//might have to add calendar date to when the experience card is booked vs saving a deal
