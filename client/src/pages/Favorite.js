@@ -24,6 +24,7 @@ function Favorite() {
 
   const favoriteCards = favorites.map((favorite) => (
     <FavoriteCard
+    key={favorite.id}
       favorite={favorite}
       deleteFavorite={deleteFavorite}
       updateFavorite={handleUpdateFavorite}

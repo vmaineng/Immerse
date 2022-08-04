@@ -3,7 +3,6 @@ import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 import { Button, Grid, Header } from "semantic-ui-react";
 
-
 function Login({ setUser }) {
   const [isLogin, setIsLogin] = useState(true);
 

@@ -4,8 +4,6 @@ import { Grid, Card, Button } from "semantic-ui-react";
 function RatingCard({ rating, deleteRating, updateRating }) {
   const [updatedRating, setUpdatedRating] = useState(rating);
 
- 
-
   function handleDeleteRating(id) {
     fetch(`/ratings/${id}`, {
       method: "DELETE",
@@ -22,7 +20,7 @@ function RatingCard({ rating, deleteRating, updateRating }) {
     fetch(`/ratings/${rating.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ rating: updatedRating}),
+      body: JSON.stringify({ rating: updatedRating }),
     })
       .then((r) => r.json())
       .then((updatedRating) => {
@@ -51,18 +49,18 @@ function RatingCard({ rating, deleteRating, updateRating }) {
                   </button>
                 );
               })} */}
-               Rating: {rating.rating}
-               <br />
-               <form onSubmit={handleSubmitRating}>
-                 <input
-                 type="number"
-                 name="updatedRating"
-                 placeholder="Insert rating"
-                 value={updatedRating}
-                 onChange={(e) => setUpdatedRating(e.target.value)}
-                 />
+              Rating: {rating.rating}
+              <br />
+              <form onSubmit={handleSubmitRating}>
+                <input
+                  type="number"
+                  name="updatedRating"
+                  placeholder="Insert rating"
+                  value={updatedRating}
+                  onChange={(e) => setUpdatedRating(e.target.value)}
+                />
 
-              <Button type="submit" >Modify</Button>
+                <Button type="submit">Modify</Button>
               </form>
               <br />
               <Button onClick={() => handleDeleteRating(rating.id)}>

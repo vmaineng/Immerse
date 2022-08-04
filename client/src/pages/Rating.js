@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RatingCard from "../components/RatingCard";
 
-
 function Rating() {
   const [ratings, setRatings] = useState([]);
 
@@ -10,11 +9,6 @@ function Rating() {
       .then((r) => r.json())
       .then(setRatings);
   }, []);
-
-  // function handleAddRating(newRating) {
-  //   const updatedRatingsArray = [...ratings, newRating];
-  //   setRatings(updatedRatingsArray);
-  // }
 
   function deleteRating(id) {
     const updatedRatingsArray = ratings.filter((rating) => rating.id !== id);
@@ -30,6 +24,7 @@ function Rating() {
 
   const ratingCards = ratings.map((rating) => (
     <RatingCard
+      key={rating.id}
       rating={rating}
       deleteRating={deleteRating}
       updateRating={handleUpdateRating}
@@ -39,7 +34,6 @@ function Rating() {
   return (
     <div>
       Rating
-      {/* <Ratingform onAddRating={handleAddRating}/> */}
       {ratingCards}
     </div>
   );

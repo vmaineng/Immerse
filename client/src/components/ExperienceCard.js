@@ -8,14 +8,13 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Grid, Card, Button } from "semantic-ui-react";
-import Moment from "moment";
 import Ratingform from "../components/Ratingform";
 
 function ExperienceCard({ experience }) {
   const { id, name, image, description, price, dt_booked_from, dt_booked_to } =
     experience;
 
-  const formatDate = Moment().format("MMM Do YY");
+  //const formatDate = Moment().format("MMM Do YY");
   const [ratings, setRatings] = useState(0);
   const [isOn, setIsOn] = useState(false);
 
@@ -68,11 +67,6 @@ function ExperienceCard({ experience }) {
 
   //each javascript objects need a key-value pair
 
-  //this function saves an experience to 'Rate Experience' page
-  // function handleClick() {
-  //   setIsOn((isOn) => !isOn);
-  // }
-
   const handleClick = () => setIsOn(true);
 
   function handleAddRating(newRating) {
@@ -109,7 +103,7 @@ function ExperienceCard({ experience }) {
           <Card centered stackable>
             <Card.Content>
               <Card.Header textAlign="center">{name}</Card.Header>
-              image: <img src={image} alt="image" />
+               <img src={image} alt="" />
               <Card.Description textAlign="center">
                 {description}
               </Card.Description>
@@ -121,27 +115,17 @@ function ExperienceCard({ experience }) {
               {/* {formatDate} */}
               Date booked to: {dt_booked_to}
               {/* {have to format this better} */}
+
               <Button basic color="purple" onClick={handleClick}>
                 {" "}
                 Leave a rating
                 {isOn && <Ratingform onAddRating={handleAddRating} id={id} />}
-                {/* {isOn ? 
-              <Ratingform onAddRating={handleAddRating} id = {id}/> 
-: 
-"Show Rating"            } */}
+              
               </Button>
               <Button basic color="blue" onClick={handleAddFavorite}>
                 Save Deal
               </Button>
-              <input
-                type="text"
-                placeholder="Add Title"
-                style={{ width: "20%", marginRight: "10px" }}
-                value={newEvent.title}
-                onChange={(e) =>
-                  setNewEvent({ ...newEvent, title: e.target.value })
-                }
-              />
+            
               <DatePicker
                 placeholderText="Start Date"
                 style={{ marginRight: "10px" }}
@@ -166,5 +150,3 @@ function ExperienceCard({ experience }) {
 
 export default ExperienceCard;
 
-//hide or show the form for rating card
-//might have to add calendar date to when the experience card is booked vs saving a deal
