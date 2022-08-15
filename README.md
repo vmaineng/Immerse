@@ -36,35 +36,47 @@ rails s: run the backend on http://localhost:3000
 npm start --prefix client: run the frontend on http://localhost:4000
 ```
 
-## Deploying
 
-This application has all the starter code needed to help you deploy your
-application to Heroku. It's recommended to deploy your project early and push up
-changes often to ensure that your code works equally well in production and
-development environments.
+## Application Photos 
 
-If you've already set up your environment to deploy to Heroku, you can run the
-commands below to deploy your application. If not, make sure to check out the
-Environment Setup section below.
+## Login Page
+This is the login/signup page for users and/or new users
 
-To deploy, first log in to your Heroku account using the Heroku CLI:
+<img width="1254" alt="home" src="https://user-images.githubusercontent.com/100221733/184709592-02dee82f-dd45-4d4e-86b8-707da8ad08fa.png">
 
-```sh
-heroku login
-```
+## Home Page
+This is the home page listing all the vacation packages available. 
 
-Create the new Heroku app:
+<img width="1107" alt="welcome" src="https://user-images.githubusercontent.com/100221733/184710162-564bbaf9-fcef-4e8f-a9e1-6eaf603a05af.png">
 
-```sh
-heroku create my-app-name
-```
+## Saved Deals
+Users can save a deal to view for a later time and it will be saved on this tab.
 
-Add the buildpacks for Heroku to build the React app on Node and run the Rails
-app on Ruby:
 
-```sh
-heroku buildpacks:add heroku/nodejs --index 1
-heroku buildpacks:add heroku/ruby --index 2
-```
+<img width="1109" alt="save" src="https://user-images.githubusercontent.com/100221733/184710836-ae5af990-4d57-4359-9110-0ec1fd839965.png">
+
+## Rate Experience
+Users can rate an experience to notify others if the vacation package was a 5 star rating or 1 star rating. 
+<img width="1108" alt="Rating" src="https://user-images.githubusercontent.com/100221733/184711458-790b88fb-7d45-4c67-9182-ddc31fa31920.png">
+
+
+## Find a Hotel
+Hotel links are provided for users who are interested in booking a place near the vacation packages.
+<img width="1111" alt="hotels" src="https://user-images.githubusercontent.com/100221733/184711385-542a4df6-c8e5-4448-9637-f6dadcec94f1.png">
+
+
+## Contact Us
+If users are not able to locate a specific vacation package or have any concerns, they can submit a form, which will send us an e-mail to contact them to address their concerns, questions, and/or comments. 
+
+<img width="1110" alt="contact" src="https://user-images.githubusercontent.com/100221733/184711321-8b893f33-6150-4220-b4d5-76cd90bf3607.png">
+
+## Author
+Mai Neng Vang
+
+1. Github: https://github.com/vmaineng
+2. Medium: https://medium.com/@vmaineng
+3. LinkedIn: https://www.linkedin.com/in/mai-vang-software-engineer/
+4. Email: vmaineng@gmail.com
+
 
 
