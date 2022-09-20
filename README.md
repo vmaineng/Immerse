@@ -71,7 +71,7 @@ If users are not able to locate a specific vacation package or have any concerns
 <img width="1110" alt="contact" src="https://user-images.githubusercontent.com/100221733/184711321-8b893f33-6150-4220-b4d5-76cd90bf3607.png">
 
 ## Author
-Mai Neng Vang
+Mai Vang
 
 1. Github: https://github.com/vmaineng
 2. Medium: https://medium.com/@vmaineng
